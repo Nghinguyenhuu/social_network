@@ -83,8 +83,7 @@ class HomeScreenState extends State<HomeScreen>
             ],
           ),
           ListView(
-            children: <Widget>[
-              
+            children: <Widget>[            
               PostsCarousel(
                 pageController: _favoritesPageController,
                 title: 'Posts',
