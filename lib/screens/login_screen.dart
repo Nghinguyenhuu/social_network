@@ -28,16 +28,20 @@ class LoginScreenState extends State<LoginScreen> {
                   fit: BoxFit.cover,
                 ),
               ),
-              GradientText(
-                'FRIENDY',
-                colors: const [Colors.lightBlue, Colors.lightGreen],
-                style: const TextStyle(
-                  fontSize: 34,
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 10.0,
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: GradientText(
+                  'FRIENDY',
+                  colors: const [Colors.lightBlue, Colors.lightGreen],
+                  style: const TextStyle(
+                    fontSize: 34,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 10.0,
+                  ),
                 ),
               ),
-              const SizedBox(height: 10.0),
+              const Text('The beginning of a new relationship',style: TextStyle(fontSize: 18,fontWeight: FontWeight.w400,color: Colors.black),),
+              const SizedBox(height: 20.0),
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
                 child: TextField(
