@@ -84,7 +84,7 @@ class HomeScreenState extends State<HomeScreen>
           ),
           ListView(
             children: <Widget>[
-              const FollowingUsers(),
+              
               PostsCarousel(
                 pageController: _favoritesPageController,
                 title: 'Posts',
@@ -115,7 +115,7 @@ class HomeScreenState extends State<HomeScreen>
             label: ''),
         const BottomNavigationBarItem(
             icon: Icon(
-              Icons.notifications,
+              Icons.chat,
               color: Colors.blue,
             ),
             label: ''),
