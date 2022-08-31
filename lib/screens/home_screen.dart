@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
+import 'package:social_network/screens/profile_screen.dart';
 import '../data/data.dart';
 import '../widgets/following_users.dart';
 import '../widgets/posts_carousel.dart';
@@ -32,12 +33,17 @@ class HomeScreenState extends State<HomeScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
         elevation: 0.0,
         iconTheme: IconThemeData(
           color: Theme.of(context).primaryColor,
         ),
-        title: GradientText('FRIENDY',colors:const [Colors.lightBlue,Colors.lightGreen],style:const TextStyle(fontSize: 24,fontWeight: FontWeight.bold),) ,
+        title: GradientText(
+          'FRIENDY',
+          colors: const [Colors.lightBlue, Colors.lightGreen],
+          style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+        ),
         centerTitle: true,
         bottom: TabBar(
           controller: _tabController,
@@ -53,7 +59,7 @@ class HomeScreenState extends State<HomeScreen>
           tabs: const <Widget>[
             Tab(
               text: 'Following',
-              icon: Icon(Icons.trending_up),
+              icon: Icon(Icons.favorite),
             ),
             Tab(
               text: 'For You',
@@ -76,7 +82,7 @@ class HomeScreenState extends State<HomeScreen>
               ),
             ],
           ),
-         ListView(
+          ListView(
             children: <Widget>[
               const FollowingUsers(),
               PostsCarousel(
@@ -88,12 +94,39 @@ class HomeScreenState extends State<HomeScreen>
           ),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(items:const [
-        BottomNavigationBarItem(icon: Icon(Icons.home,color: Colors.blue,),label: ''),
-        BottomNavigationBarItem(icon: Icon(Icons.search,color: Colors.blue,),label: ''),
-        BottomNavigationBarItem(icon: Icon(Icons.add,color: Colors.blue,),label: ''),
-        BottomNavigationBarItem(icon: Icon(Icons.notifications,color: Colors.blue,),label: ''),
-        BottomNavigationBarItem(icon: Icon(Icons.person,color: Colors.blue,),label: '')
+      bottomNavigationBar: BottomNavigationBar(items: [
+        const BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home,
+              color: Colors.blue,
+            ),
+            label: ''),
+        const BottomNavigationBarItem(
+            icon: Icon(
+              Icons.search,
+              color: Colors.blue,
+            ),
+            label: ''),
+        const BottomNavigationBarItem(
+            icon: Icon(
+              Icons.add,
+              color: Colors.blue,
+            ),
+            label: ''),
+        const BottomNavigationBarItem(
+            icon: Icon(
+              Icons.notifications,
+              color: Colors.blue,
+            ),
+            label: ''),
+        BottomNavigationBarItem(
+            icon: GestureDetector(
+              onTap:() =>  Navigator.push(context, MaterialPageRoute(builder:(context) => ProfileScreen(user:currentUser,))),
+                child:const Icon(
+              Icons.person,
+              color: Colors.blue,
+            )),
+            label: '')
       ]),
     );
   }

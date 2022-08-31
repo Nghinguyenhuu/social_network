@@ -12,14 +12,7 @@ class FollowingUsers extends StatelessWidget {
       children: <Widget>[
         const Padding(
           padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
-          child: Text(
-            'Following',
-            style: TextStyle(
-              fontSize: 24.0,
-              fontWeight: FontWeight.bold,
-              letterSpacing: 2.0,
-            ),
-          ),
+          
         ),
         SizedBox(
           height: 80.0,
